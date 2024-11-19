@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About - Giva</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+      .text-justify {
+      text-align: justify;
+      }
+
+      .underweight { background-color: #FFCCCB; }
+        .normal { background-color: #90EE90; }
+        .overweight { background-color: #FFD700; }
+        .obese1 { background-color: #FF8C00; }
+        .obese2 { background-color: #FF4500; }
+        .obese3 { background-color: #FF0000; }
+
+        .bg-small-padding {
+            background-color: #ffabab; 
+            padding: 150px; 
+            width: 100%; 
+            margin: 0 auto; 
+        }
+        
+        .colored-box {
+            background-color: #90EE90; /* Warna hijau muda */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"> Giva's Portfolio </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"> About Me </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"> Skills </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"> Project </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="BMI.html">BMI Calculator </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Contact Me </a>
+              </li>
+            </ul>
+            </span>
+          </div>
+        </div>
+      </nav>
+
+    </br>
+</br>
+</br>
+</br>
+<div class="container mt-2">
+    <h1 class="mb-2 text-center">About BMI</h1></br>
+    <div class="container mt-5">
+      <p class="text-justify">
+        Kalkulator BMI (Body Mass Index) adalah alat yang digunakan untuk menghitung indeks massa tubuh seseorang berdasarkan berat badan dan tinggi badan. BMI digunakan sebagai indikator sederhana untuk mengukur apakah 
+        seseorang memiliki berat badan yang sehat, kurang berat badan, kelebihan berat badan, atau obesitas.
+      </p>
+    </div>
+
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Tabel Nilai BMI</h2>
+      <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">BMI</th>
+                  <th scope="col">Kategori</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="underweight">
+                  <td>&lt; 18.5</td>
+                  <td style="background-color: #FFCCCB;">Kekurangan Berat Badan</td>
+              </tr>
+              <tr class="normal">
+                  <td>18.5 - 24.9</td>
+                  <td style="background-color: #90EE90;">Normal</td>
+              </tr>
+              <tr class="overweight">
+                  <td>25 - 29.9</td>
+                  <td style="background-color: #FFD700;">Kelebihan Berat Badan</td>
+              </tr>
+              <tr class="obese1">
+                  <td>30 - 34.9</td>
+                  <td style="background-color: #FF8C00;">Obesitas Kelas 1</td>
+              </tr>
+              <tr class="obese2">
+                  <td>35 - 39.9</td>
+                  <td style="background-color: #FF4500;">Obesitas Kelas 2</td>
+              </tr>
+              <tr class="obese3">
+                  <td>&#8805; 40</td>
+                  <td style="background-color: #FF0000;">Obesitas Kelas 3</td>
+              </tr>
+          </tbody>
+      </table>
+    </br>
+
+      <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Ayo Coba!
+            </div>
+            <div class="card-body">
+                <label class="mb-3">Tinggi Badan (cm)</label><br>
+                <input id="tinggi" name="tinggi" type="number" placeholder="Masukan berat badan" class="form-control mb-2">
+                
+                <label class="mb-2">Berat Badan (kg)</label><br>
+                <input id="berat" name="berat" type="number" placeholder="Masukan tinggi badan" class="form-control mb-2">
+                
+                <button class="btn btn-primary" onclick="hitung()">hitung</button>
+                <h5 class="h5" id="bmi"></h5>
+                <h6 class="h5" id="keterangan"></h6>
+            </div>
+        </div>
+      </div>
+
+</div>
+    <script>
+        var tinggi, berat, hasil, keterangan;
+
+        function hitung(){
+            tinggi = parseFloat(document.getElementById("tinggi").value)
+            tinggi /= 100;
+            berat = parseFloat(document.getElementById("berat").value)
+            bmi = berat / (tinggi * tinggi)
+
+            if (bmi<=18.5) {
+                keterangan = "kamu terlalu kecil, naikan berat badan"
+            }
+            else if (bmi>18.5 && bmi<=24.9) {
+                keterangan = "berat badan kamu ideal"
+            }
+            else if (bmi>=25 && bmi<=29.9) {
+                keterangan = "kamu sedikit gemuk"
+            }
+            else if (bmi>=30 && bmi>=34.9) {
+                keterangan = "kamu mengalami obesitas ringan"
+            }
+            else if (bmi>=35 && bmi>=39.9) {
+                keterangan = "kamu mengalami obesitas menengah"
+            }
+            else if (bmi>=40) {
+                keterangan = "kamu mengalami obesitas berat"
+            }
+
+            document.getElementById("bmi").innerHTML = "Hasil Perhitungan : " + bmi.toFixed(1);
+            document.getElementById("keterangan").innerHTML = "Keterangan : " + keterangan;
+        }
+</script>
+        
+        <div class="container mt-5">
+        <h2 class="text-center mb-4">Healty Tips for a Balanced BMI</h2>
+        </div>
+
+      </br>
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Makan dengan Porsi yang Tepat
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <p>1. Kontrol Porsi: Hindari makan berlebihan dengan memperhatikan ukuran porsi makanan. Gunakan piring yang lebih kecil atau perhatikan 
+              porsi yang sesuai dengan kebutuhan kalori harian Anda.</p>
+             <p> 2. Makan secara teratur: Cobalah makan 3 kali sehari dengan 2-3 camilan sehat di antara waktu makan untuk menjaga metabolisme tetap aktif.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Olahraga Secara Rutin
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <p>Latihan Kardio: Lakukan aktivitas kardio seperti berjalan cepat, jogging, bersepeda, atau berenang setidaknya 150 menit per minggu untuk meningkatkan pembakaran kalori.</p>
+            <p>  Latihan Kekuatan: Latihan kekuatan seperti angkat beban atau yoga membantu meningkatkan massa otot, yang dapat meningkatkan metabolisme tubuh.</p>
+            <p>  Perhatikan Konsistensi: Pilih jenis olahraga yang Anda nikmati agar tetap termotivasi dan konsisten dalam melakukannya.</p>
+
+          </div>
+        </div>
+      </div>
+    
+
+    <footer class="text-center">
+      <div class="container">
+          <p>&copy; 2024 Giva Nisrina A. All Rights Reserved.</p>
+          
+      </div>
+  </footer>
+</script>
+    </body>
+    </html>
